@@ -14,8 +14,8 @@ class Login {
 
         if ($result->num_rows >= 1) {
             $user = $result->fetch_assoc();
-            if (password_verify($password, $user['password'])) {
-                $_SESSION['username'] = $username;
+            if (password_verify($password, $user['password_hash'])) {
+                $_SESSION['user_id'] = $user['user_id'];
                 return "Login Successfull";
             } else {
                 return "Incorrect password";

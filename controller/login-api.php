@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     $result = $login->authenticate($username, $password);
-    if ($result) {
+    if ($result == "Login Successfull") {
         header("refresh:1; url=../home.php");
         exit();
     } else {
